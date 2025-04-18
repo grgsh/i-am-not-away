@@ -37,7 +37,6 @@ impl Animator {
         let target_sleep_time = Duration::from_micros(1_000_000 / actual_target_fps.max(1) as u64);
 
         loop {
-            Self::clean_screen();
             on_tick();
 
             let frame_start = Instant::now();
@@ -78,7 +77,7 @@ impl Animator {
         L / (1.0 + E.powf(-1.0 * k * (x - x0)))
     }
 
-    fn clean_screen() {
+    pub fn clean_screen() {
         print!("{esc}[2J{esc}[1;1H", esc = 27 as char);
     }
 }
