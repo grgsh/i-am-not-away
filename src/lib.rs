@@ -57,7 +57,7 @@ impl Animator {
         let mut is_going_up = false;
 
         Self::run(self, || {
-            let modo = Self::log(x, 1.0, 1.0, 0.5);
+            let modo = Self::logistic(x, 1.0, 1.0, 0.5);
 
             if !is_going_up && current > min.into() {
                 x -= 0.1;
@@ -72,9 +72,9 @@ impl Animator {
         });
     }
 
-    // TODO: improve the param names
-    pub fn log(x: f64, L: f64, k: f64, x0: f64) -> f64 {
-        L / (1.0 + E.powf(-1.0 * k * (x - x0)))
+    // Source: https://en.wikipedia.org/wiki/Logistic_function
+    pub fn logistic(input: f64, capacity: f64, growth: f64, midpoint: f64) -> f64 {
+        capacity / (1.0 + E.powf(-1.0 * growth * (input - midpoint)))
     }
 
     pub fn clean_screen() {
