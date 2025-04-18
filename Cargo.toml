@@ -1,6 +1,11 @@
 [package]
-name = "i_am_not_away"
+name = "i-am-not-away"
+description = "An attempt to prevent apps from automatically setting an 'away' status when being AFK"
 version = "0.1.0"
+homepage = "https://github.com/grgsh/i-am-not-away"
+repository = "https://github.com/grgsh/i-am-not-away"
+readme = "README.md"
+license = "MIT"
 edition = "2024"
 
 [dependencies]
